@@ -9,10 +9,10 @@
     <p>The Audio context needs to be started by a user gesture.</p>
     <button id="start">Start context</button>  
   </div> -->
-  <div style="font-size:12px;color:red">请关闭静音模式或带上耳机，尽量使用有线耳机</div>
+  <div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div>
   <div>
     <div style="display:flex;">
-      <div id="title" style="width:50%"></div>
+      <div id="title" style="width:50%;font-weight: bold;"></div>
       <button id="reset" style="width:50%">重置</button>
     </div>
     <!-- <button id="drum">播放鼓点</button> -->
@@ -20,7 +20,8 @@
       <canvas id="chart" height="50px"></canvas>
       <div id="line" style="width:1px;height:20px;background-color:red ;position: absolute;top:67px"></div>
     </div> -->
-    <button id="play" style="position:absolute;top:50px;right:2px;left:2px;bottom:2px;">点按</button>
+    <div id="progress" style="margin-top:5px;width: 0%; height:5px;background-color:#db5a6b"></div>
+    <button id="play" style="position:absolute;top:60px;right:2px;left:2px;bottom:2px;">点按</button>
     <!-- <button id="stop">Stop</button> -->
   </div>
   <script src="Tone.js"></script>

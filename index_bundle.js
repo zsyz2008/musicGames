@@ -65569,7 +65569,8 @@ const mid10 = {
 // const btnStart = document.getElementById('start');
 const btnPlay = document.getElementById('play');
 const btnReset = document.getElementById('reset');
-const btnDrum = document.getElementById('drum');
+//const btnDrum = document.getElementById('drum');
+const progress = document.getElementById('progress');
 
 btnPlay.style.backgroundColor = 'buttonface'
 
@@ -65809,10 +65810,10 @@ window.addEventListener('keyup', () => {
 });
 
 function noteOn(){
-  // startMoveLine();
+  startTimer();
   note = notes[activeClipIdx];
   synth.triggerAttack(note);
-  btnPlay.style.backgroundColor= 'yellow'
+  btnPlay.style.backgroundColor= 'rgb(252, 201,185, .5)'
   //sampler.triggerAttack(note);
 }
 
@@ -65825,6 +65826,35 @@ function noteOff(){
   }
   else{
     activeClipIdx++
+  }
+}
+
+let timer;
+const ITERVAL_VAl = 30;
+console.log(times)
+function startTimer(){
+  clearInterval(timer);
+  const time1 =  times[activeClipIdx];
+  const time2 =  times[activeClipIdx+1];
+  if(time2){
+    const len = (time2-time1)*1000
+    console.log(len, 232)
+    let time = len;
+    timer = setInterval(()=>{
+      if(time<=0){
+        clearInterval(timer);
+        time = 0;
+        // btnPlay.textContent = '点按';
+        progress.style.width = 0 + '%'
+        return
+      }
+      time = time - ITERVAL_VAl;
+      console.log(time)
+      const percent = Math.ceil(time*100/len) 
+      // btnPlay.textContent = percent + '%';
+      progress.style.width = percent + '%'
+      
+    }, ITERVAL_VAl)
   }
 }
 
