@@ -11,8 +11,8 @@
       align-items: center;
     }
     .avatar1{
-      width: 50%;
-      height: 100px;
+      width: 70%;
+      height: 200px;
       /* background: url(./1.jpg);
       background-size:cover; */
       background-color: #db5a6b;
@@ -20,10 +20,11 @@
       /* opacity: .5; */
       position: absolute;
       left:0px;
+      top:40%
     }
     .avatar2{
-      width: 50%;
-      height: 100px;
+      width: 70%;
+      height: 200px;
       /* background: url(./2.jpg);
       background-size:cover; */
       background-color: #db5a6b;
@@ -31,6 +32,7 @@
       position: absolute;
       /* opacity: .5; */
       right: 0px;
+      top:40%
     }
     input[type='checkbox'].switch{
       outline: none;
@@ -68,4 +70,4 @@
       position: absolute;
       left: 55%;
       top: 1px;
-    }</style></head><body><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><input type="checkbox" id="switch" class="switch" :checked="fun.value=='true'" style="visibility:visible"> <img id="reset" width="25px" height="25px" src="./Reset.png"/></div><div id="progress" style="margin-top:5px;width: 100%; height:3px;background-color:#db5a6b"></div><div id="playground" style="display:flex;flex-wrap: wrap;border:1px solid #db5a6b;margin:6px;position:absolute;top:55px;right:2px;left:2px;bottom:2px;"><div class="list"><div class="avatar1" id="btnPlay0" style="visibility:visible"></div></div><div class="list"><div class="avatar2" id="btnPlay1"></div></div></div></div><script src="Tone.js"></script><script src="index_bundle.js"></script></body></html>
+    }</style></head><body><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><input type="checkbox" id="switch" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <img id="reset" width="25px" height="25px" src="./Reset.png"/></div><div id="progress" style="margin-top:5px;width: 100%; height:3px;background-color:#db5a6b"></div><div id="playground" style="display:flex;flex-wrap: wrap;border:1px solid #db5a6b;margin:6px;position:absolute;top:55px;right:2px;left:2px;bottom:2px;"><div class="list"><div class="avatar1" id="btnPlay0" style="visibility:visible"></div></div><div class="list"><div class="avatar2" id="btnPlay1"></div></div></div></div><script src="Tone.js"></script><script src="index_bundle.js"></script></body></html>
