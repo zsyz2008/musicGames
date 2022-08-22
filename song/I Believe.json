@@ -33,9 +33,9 @@
       "controlChanges": {},
       "pitchBends": [],
       "instrument": {
-        "family": "piano",
+        "family": "piano1",
         "number": 0,
-        "name": "acoustic grand piano"
+        "name": "acoustic grand piano1"
       },
       "name": "untitled",
       "notes": [],
@@ -65,7 +65,7 @@
       "instrument": {
         "family": "brass",
         "number": 56,
-        "name": "trumpet"
+        "name": "trumpet1"
       },
       "name": "",
       "notes": [
@@ -762,7 +762,7 @@
       "instrument": {
         "family": "piano",
         "number": 0,
-        "name": "acoustic grand piano"
+        "name": "acoustic grand piano1"
       },
       "name": "untitled",
       "notes": [],
@@ -864,7 +864,7 @@
       "instrument": {
         "family": "ensemble",
         "number": 48,
-        "name": "string ensemble 1"
+        "name": "string ensemble 122"
       },
       "name": "",
       "notes": [
@@ -3568,7 +3568,7 @@
       "instrument": {
         "family": "guitar",
         "number": 25,
-        "name": "acoustic guitar (steel)"
+        "name": "acoustic guitar (steel)11"
       },
       "name": "",
       "notes": []
@@ -3580,7 +3580,7 @@
       "instrument": {
         "family": "bass",
         "number": 33,
-        "name": "electric bass (finger)"
+        "name": "electric bass (finger)1"
       },
       "name": "",
       "notes": []
