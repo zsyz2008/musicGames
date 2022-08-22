@@ -228,7 +228,7 @@
       {
         "ticks": 0,
         "timeSignature": [
-          4,
+          2,
           4
         ],
         "measures": 0
@@ -357,7 +357,7 @@
       "instrument": {
         "family": "chromatic percussion",
         "number": 11,
-        "name": "vibraphone"
+        "name": "lead 1 (square)"
       },
       "name": "",
       "notes": [
