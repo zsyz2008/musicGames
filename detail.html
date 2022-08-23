@@ -8,19 +8,23 @@
       position: relative;
       background-color: rgba(252, 201,185, .3);
       /* border: 1px solid #fff; */
-      box-sizing:border-box;
+      box-sizing:content-box;
       display:flex;
       flex-direction: column;
       flex-wrap: nowrap;
-      border-right: 1px solid #fff;
+      border-right: 2px solid #fff;
       font-size: 12px;
       text-align: center;
     }
+
+    #scoreContainer .list{
+      box-sizing: border-box;
+    }
+
     .avatar{
       /* background: url(./1.jpg);
       background-size:cover; */
       width: 100%;
-      background-color: #db5a6b;
       position:absolute;
       /* top:0px;
       bottom: 0px; */
@@ -32,6 +36,13 @@
       right: 0;
       /* border-bottom: 1px solid #fff; */
       box-sizing: border-box;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+    .fq{
+      width: 100%;
+      box-sizing: border-box;
+      /* border-bottom: 1px solid #fff; */
     }
     input[type='checkbox'].switch{
       outline: none;
@@ -146,6 +157,6 @@ button.learn-more:active::before {
       width: 100%;
       box-shadow: -3px -3px 0px #ddd,3px 3px 0px #333;
     }
-    .big-btn:active{
-      box-shadow: 3px 3px 0px #ddd,-3px -3px 0px #333;
-    }</style></head><body><div><a href="javascript:window.history.go(-1)" class="back">返回列表</a><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><input type="checkbox" id="switch" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <img id="reset" width="25px" height="25px" src="./Reset.png"/></div><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;border-bottom: none;"></div><div id="scoreTick" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;"></div><div id="scoreContainer" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:280px;border-top:none">加载乐谱及音色中...</div><div id="playground"><button id="playBtn" class="big-btn" style="visibility: hidden"></button></div></div><script src="https://cdn.bootcdn.net/ajax/libs/tone/14.8.40/Tone.min.js"></script><script src="Tonejs-Instruments.js"></script><script src="detail.js"></script></body></html>
+.big-btn:active{
+    box-shadow: 3px 3px 0px #ddd,-3px -3px 0px #333;
+}</style></head><body><div><a href="javascript:window.history.go(-1)" class="back">返回列表</a><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><input type="checkbox" id="switch" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <img id="reset" width="25px" height="25px" src="./Reset.png"/></div><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;border-bottom: none;"></div><div id="scorePai" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;"></div><div id="scoreTick" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:280px;position: absolute;left:8px;right:8px;border-top:none;border-bottom: none;pointer-events:none;visibility: hidden;"></div><div id="scoreContainer" style="font-size:12px;flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:280px;border-top:none">加载音色中...</div><div id="playground"><button id="playBtn" class="big-btn" style="visibility: hidden"></button></div></div><script src="https://cdn.bootcdn.net/ajax/libs/tone/14.8.40/Tone.min.js"></script><script src="Tonejs-Instruments.js"></script><script src="detail.js"></script></body></html>
