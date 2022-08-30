@@ -1,58 +1,16 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="keywords" content=""><meta name="description" content=""><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="apple-touch-fullscreen"/><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"/><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta content="telephone=no,email=no" name="format-detection"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><link rel="stylesheet" href="demo.css"><title>史上最容易学的乐器</title></head><body><ul id="list"></ul><div id="loading">loading...</div><script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script><script>const SONG_LIST = [
-                {
-                    diplayName:'机器猫',
-                    name:'jiqimao'
-                },
-                {
-                    diplayName:"寂寞的季节",
-                    name:'jmdjj'
-                },
-                {
-                    diplayName:'I Believe',
-                    name:'ib-all'
-                },
-                {
-                    diplayName:'轨迹',
-                    name:'guiji-all'
-                },
-                {
-                    diplayName:'双节棍',
-                    name:'sjg'
-                },
-                // {
-                //     diplayName:'忍者',
-                //     name:'renzhe'
-                // },
-                {
-                    diplayName:'蜗牛',
-                    name:'woniu'
-                },
-                {
-                    diplayName:'爱你',
-                    name:'aini'
-                },
-                {
-                    diplayName:'大鱼',
-                    name:'dayu'
-                },
-                {
-                    diplayName:'野蜂飞舞',
-                    name:'yffw'
-                },
-                {
-                    diplayName:"我的野蛮女友－背景音乐",
-                    name:'ymny'
-                },
-                {
-                    diplayName:"我喜欢I Like it-麦当劳广告歌",
-                    name:'iloveit'
-                },
-                {
-                    diplayName:'Danny Boy',
-                    name:'denny-boy'
-                },
-            ]
-            ;(function (factory) {
+<!doctype html><html><head><meta charset="UTF-8"><meta name="keywords" content=""><meta name="description" content=""><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="apple-touch-fullscreen"/><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"/><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta content="telephone=no,email=no" name="format-detection"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><link rel="stylesheet" href="demo.css"><title>史上最容易学的乐器</title></head><body><ul id="list"></ul><div id="loading">loading...</div><script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script><script>let SONG_LIST = [];
+            fetch('./list.json')
+            .then(response=>{
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                response.status);
+                return;
+            }
+            return response.json()
+            })
+            .then(function(data) {
+                const SONG_LIST = data;
+                ;(function (factory) {
                 if (typeof define === "function" && define.amd) {
                     // AMD模式
                     define([ "jquery"], factory);
@@ -215,4 +173,5 @@
                         },3000);
                     }
                 }
-            });</script><script src="index.js"></script></body></html>
+            });
+            })</script><script src="index.js"></script></body></html>
