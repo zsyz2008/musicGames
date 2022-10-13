@@ -32,7 +32,7 @@
       border-right: 1px solid #fff;
       font-size: 12px;
       text-align: center;
-      box-sizing: content-box;
+      /* box-sizing: content-box; */
     }
 
     #scoreContainer .list{
@@ -71,6 +71,15 @@
       box-sizing: border-box;
       flex-wrap: nowrap;
       flex-direction: column;
+    }
+    .list-border{
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 100%;
+      z-index: 1;
+      background-color: red;
+      opacity: 0;
     }
     .fq{
       width: 100%;
