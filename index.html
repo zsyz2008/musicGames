@@ -1,177 +1,35 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="keywords" content=""><meta name="description" content=""><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="apple-touch-fullscreen"/><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"/><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta content="telephone=no,email=no" name="format-detection"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><link rel="stylesheet" href="demo.css"><title>史上最容易学的乐器</title></head><body><ul id="list"></ul><div id="loading">loading...</div><script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script><script>let SONG_LIST = [];
-            fetch('./list.json')
-            .then(response=>{
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                response.status);
-                return;
-            }
-            return response.json()
-            })
-            .then(function(data) {
-                const SONG_LIST = data;
-                ;(function (factory) {
-                if (typeof define === "function" && define.amd) {
-                    // AMD模式
-                    define([ "jquery"], factory);
-                } else {
-                    // 全局模式
-                    factory(jQuery);
-                }
-            }(function ($) {
-                var defaults ={
-                insertType:1,//1=>直接存html字符串
-                dataStr:'',
-                scrollY:0,
-                appendTo:'#list',
-                name:'detail2list',
-                extraData:{},
-                dataStrName:'dataStr',
-                scrollYName:'scrollY',
-                extraDataName:'extraData',
-                currentTimeStampName:'currentTimeStamp',
-                currentTimeStamp:(new Date()).getTime(),
-                addBack:true,//为列表添加一个标志
-                expire:10*60*1000//过期时间,单位毫秒，默认10分钟
-                };
-                function detail2list(options){
-                    this.settings=$.extend({},defaults,options || {});
-                    this.init();
-                }
-                detail2list.prototype={
-                    init:function(){
-                        if(!('localStorage' in window)&&!(window['localStorage'] !== null)){
-                            console.error("您的浏览器不支持h5的window.localStorage本地存储，请使用其他现代浏览器");
-                            return;
-                        }
-                        this.isExpire();
-                        this.windowBind();
-                        this.setLocalStorage(0);
-                    },
-                    isBack:function(){
-                        //根据锚点，粗略判断是否点了返回，从detail返回了列表
-                        return window.location.hash==''?false:true;
-                    },
-                    isExpire:function(){
-                        var current=(new Date).getTime();
-                        if(this.existLocalStorageName()){
-                            var storage=this.getLocalStorage();
-                            var localCurrent=storage[this.settings.currentTimeStampName]+this.settings.expire;
-                            if(current>localCurrent){
-                                this.removeLocalStorage();
-                                console.log("expire");
-                            }
-                        }
-                    },
-                    insertHtmlStr:function(str,extraData){
-                        this.setLocalStorage(1,str,extraData);
-                    },
-                    setLocalStorage:function(type,str,extraData){
-                        //type=0=>refresh or back，type=1=>scrolling
-                        var storage;
-                        if(this.existLocalStorageName()){
-                            //exist
-                            storage=this.getLocalStorage();
-                            if(type==0){
-                                if(this.isBack()&&this.settings.addBack){
-                                    $(this.settings.appendTo).html(storage[this.settings.dataStrName]);
-                                    this.scroll2Y(storage[this.settings.scrollYName]);
-                                }
-                                storage[this.settings.extraDataName]=this.isBack()&&this.settings.addBack?storage[this.settings.extraDataName]:{};
-                            }
-                            else if(type==1&&extraData!==undefined){
-                                storage[this.settings.extraDataName]=extraData;
-                            }
-                            storage[this.settings.scrollYName]=this.isBack()&&this.settings.addBack?this.settings.scrollY:0;
-                            storage[this.settings.dataStrName]=str===undefined?storage[this.settings.dataStrName]:str;;
-                            window.localStorage.setItem(this.settings.name,this.string2json(storage));
-                        }
-                        else{
-                            //not exist
-                            storage={};
-                            storage[this.settings.currentTimeStampName]=this.settings.currentTimeStamp;
-                            storage[this.settings.extraDataName]=this.settings.extraData;
-                            storage[this.settings.scrollYName]=this.settings.scrollY;
-                            storage[this.settings.dataStrName]=this.settings.dataStr;
-                            window.localStorage.setItem(this.settings.name,this.string2json(storage));
-                        }
-                    },
-                    getLocalStorage:function(){
-                        return this.json2string(window.localStorage.getItem(this.settings.name));
-                    },
-                    removeLocalStorage:function(){
-                        window.localStorage.removeItem(this.settings.name);
-                    },
-                    string2json:function(json){
-                        return JSON.stringify(json);
-                    },
-                    json2string:function(str){
-                        return JSON.parse(str);
-                    },
-                    existLocalStorageName:function(){
-                        return window.localStorage.getItem(this.settings.name)===null?false:true;
-                    },
-                    windowBind:function(){
-                        this.settings.first=true;
-                        $(window).scroll($.proxy(function(){
-                            var scroll_top=$(window).scrollTop();
-                            this.settings.scrollY=scroll_top;
-                            this.replaceAnchor(scroll_top);
-                            this.setLocalStorage(1);
-                        },this));
-                    },
-                    replaceAnchor:function(scroll_top){
-                        if(this.settings.addBack){
-                            //这样锚点滚动就会产生历史记录数
-                            //window.location.hash="#"+this.settings.scrollYName+"="+scroll_top;
-                            //这样锚点滚动不会产生历史记录数
-                            window.location.replace("#"+this.settings.scrollYName+"="+scroll_top);
-                        }
-                    },
-                    scroll2Y:function(scrolly){
-                        $("html,body").scrollTop(scrolly);
-                    },
-
-                }
-                window.h5Detail2list=detail2list;
-            }));
-
-
-            var detail2list=new h5Detail2list();
-            var scrolling=false;
-            var listnum=0;
-            if($.isEmptyObject(detail2list.getLocalStorage()['extraData'])||!detail2list.isBack()){
-                getList(SONG_LIST.length);
-            }
-            function getList(num){
-                var li='';
-                listnum=$.isEmptyObject(detail2list.getLocalStorage()['extraData'])?listnum:detail2list.getLocalStorage()['extraData']['lastIndex'];
-                for(i=listnum;i<(num+listnum);i++){
-                    const song = SONG_LIST[i]
-                    li+='<li><a href="detail.html?name=' + song.name + '">'+song.diplayName+'</a></li>';
-                }
-                $("#list").append(li);
-                hideLoading();
-                listnum=num+listnum;
-            }
-            function showLoading(){
-                scrolling=true;
-                $("#loading").show();
-            }
-            function hideLoading(){
-                scrolling=false;
-                $("#loading").hide();
-            }
-            $(window).scroll(function(){
-                if($(window).scrollTop()+$(window).height()-$(document).height()>=-1){
-                    if(!scrolling){
-                        showLoading();
-                        setTimeout(function(){
-                            getList(10);
-                            //采用lastIndex进行分页，你可以转为当前页数
-                            detail2list.insertHtmlStr($("#list").html(),{lastIndex:listnum});
-                        },3000);
-                    }
-                }
-            });
-            })</script><script src="index.js"></script></body></html>
+Html Webpack Plugin:
+<pre>
+  Error: html-webpack-plugin could not minify the generated output.
+  In production mode the html minifcation is enabled by default.
+  If you are not generating a valid html output please disable it manually.
+  You can do so by adding the following setting to your HtmlWebpackPlugin config:
+  |
+  |    minify: false
+  |
+  See https://github.com/jantimon/html-webpack-plugin#options for details.
+  For parser dedicated bugs please create an issue here:
+  https://danielruf.github.io/html-minifier-terser/
+  Parse Error: <!-- <iframe width='100%' height='1000px'src="http://sentry.cecloud-inc.com/"></iframe>
+      <script src="index.js"></script></body>
+  </html>
+  
+  - htmlparser.js:244 new HTMLParser
+    [music-core]/[html-minifier-terser]/src/htmlparser.js:244:13
+  
+  - htmlminifier.js:993 minify
+    [music-core]/[html-minifier-terser]/src/htmlminifier.js:993:3
+  
+  - htmlminifier.js:1354 Object.exports.minify
+    [music-core]/[html-minifier-terser]/src/htmlminifier.js:1354:16
+  
+  - index.js:1019 HtmlWebpackPlugin.minifyHtml
+    [music-core]/[html-webpack-plugin]/index.js:1019:46
+  
+  - index.js:435 HtmlWebpackPlugin.postProcessHtml
+    [music-core]/[html-webpack-plugin]/index.js:435:40
+  
+  - index.js:260 
+    [music-core]/[html-webpack-plugin]/index.js:260:25
+  
+</pre>

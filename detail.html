@@ -2,6 +2,20 @@
       position: static;
       margin-left: 4px;
     }
+    body {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        background-image: url(https://images.pexels.com/photos/2086917/pexels-photo-2086917.png?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+        background-size: cover;
+        background-position: center center;
+        background-color: black;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; */
+        /* background-color: black; */
+    }
     a{
         font-size: 14px;
     }
@@ -23,7 +37,8 @@
       float: left;
       height: 100%;
       position: relative;
-      background-color: rgba(252, 201,185, .3);
+      /* background-color: rgba(252, 201,185); */
+      /* background-color: red; */
       /* border: 1px solid #fff; */
       box-sizing:content-box;
       display:flex;
@@ -43,17 +58,18 @@
       font-size:12px;
       display:flex;
       flex-wrap: nowrap;
-      border:1px solid #db5a6b;
+      /* border:1px solid #db5a6b; */
       border-top:none;
       position:absolute;
-      top:116px;
+      top:110px;
       bottom:0px;
-      margin: 0 8px  0 8px;
+      /* margin: 0 8px  0 8px; */
       right:0px;
-      left:0px;
+      left:5px;
     }
 
     .avatar{
+      z-index: -1;
       /* background: url(./1.jpg);
       background-size:cover; */
       width: 100%;
@@ -67,7 +83,7 @@
       font-size: 12px;
       right: 0;
       /* border-bottom: 1px solid #fff; */
-      background-color: #eee;
+      /* background-color: #eee; */
       box-sizing: border-box;
       flex-wrap: nowrap;
       flex-direction: column;
@@ -93,6 +109,7 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       position: relative;
+      /* display: inline; */
       width: 40px;
       height: 20px;
       background: #ccc;
@@ -136,73 +153,6 @@
       left:0px;
       height: 100px;
     }
-    button {
-    /* width: 50%; */
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    border: 0;
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: inherit;
-    font-family: inherit;
-}
-
-button.learn-more {
-    width: 100%;
-    font-weight: 600;
-    color: #382b22;
-    text-transform: uppercase;
-    padding: 1.25em 2em;
-    background: #ffe9e9;
-    border: 2px solid #b18597;
-    border-radius: 0.75em;
-    transform-style: preserve-3d;
-    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
-}
-
-button.learn-more::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #f9c4d2;
-    border-radius: inherit;
-    box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
-    transform: translate3d(0, 0.5em, -1em);
-    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
-}
-
-button.learn-more:active {
-    background: #ffe9e9;
-    transform: translate(0em, 0.75em);
-}
-
-button.learn-more:active::before {
-    box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
-    transform: translate3d(0, 0, -1em);
-}
-.big-btn{
-      text-decoration: none;
-      background-color: rgb(200, 200, 200);
-      /* background-color:rgb(252, 201,185, .3); */
-      font-weight: 100px;
-      font-size: 2em;
-      display: inline-block;
-      /* padding: 4px 20px 4px 20px; */
-      border-radius: 4px;
-      /* margin: 10px; */
-      width: 100%;
-      box-shadow: -3px -3px 0px #ddd,3px 3px 0px #333;
-    }
-.big-btn:active{
-    box-shadow: 3px 3px 0px #ddd,-3px -3px 0px #333;
-}
 
 #myStaff{
   z-index: 1;
@@ -216,4 +166,64 @@ button.learn-more:active::before {
 
 #staffDiv{
   pointer-events:none;
-}</style></head><body><div><a href="javascript:window.history.go(-1)" class="back">返回列表</a><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:visible"> <img id="reset" width="25px" height="25px" src="./Reset.png"/></div><div id="staffDiv" class="staff" style="visibility: hidden;"></div><div><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;border-bottom: none;"></div><div id="scorePai" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;"></div><div id="scoreContainer">加载音色中...</div></div></div><script src="//cdn.jsdelivr.net/gh/zsyz2008/musicGames/Tone.js"></script><script src="//cdn.jsdelivr.net/npm/webmidi@next/dist/iife/webmidi.iife.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/JZZ.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/JZZ.input.Kbd.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/staff.js"></script><script src="detail.js"></script></body></html>
+}
+
+.button2.fire {
+  border-color: #ffeca8;
+  background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.6), rgba(240, 96, 29, 0.6));
+  box-shadow: 0 0 70px rgb(255 138 48 / 60%), 0 5px 20px rgb(255 138 48 / 60%), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+  color: #ffeca8;
+}
+
+.button2.ice {
+  border-color: #a8ecff;
+  background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.5), rgba(29, 96, 240, 0.5));
+  box-shadow: 0 0 70px rgb(48 138 255 / 50%), 0 5px 20px rgb(48 138 255 / 50%), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+  color: #a8ecff;
+}
+
+.button2 {
+  border: 1px solid green;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  /* -webkit-transform: skewX(-10deg);
+  transform: skewX(-10deg); */
+  height: 50px;
+  /* width: 200px; */
+  border-radius: 20px 5px 20px 0px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font: 15px sans-serif;
+  font-weight: 300;
+  text-shadow: 0 0 20px #fff;
+  text-transform: uppercase;
+  -webkit-animation: breath2 2s 0.5s infinite alternate;
+  animation: breath2 2s 0.5s infinite alternate;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.button2.fire:before {
+  box-shadow: inset 0 0 30px 0 #ffeca8;
+}
+.button2.ice:before {
+  box-shadow: inset 0 0 30px 0 #ffeca8;
+}
+
+.button2:before {
+    content: "";
+    display: block;
+    width: calc(100% - 22px);
+    height: calc(100% - 8px);
+    -webkit-animation: breath 2s infinite alternate;
+    animation: breath 2s infinite alternate;
+    left: 10px;
+    top: 3px;
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px 3px 15px 3px;
+}</style></head><body><div style="color: #fff"><a href="javascript:window.history.go(-1)" class="back">返回列表</a><div style="font-size:12px;color:#db5a6b">请关闭静音模式或带上耳机，尽量使用有线耳机,蓝牙耳机有延迟</div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;"></div><div style="display: flex;"><img id="reset" width="25px" height="25px" src="./Reset.png"/> <input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:visible"></div></div><div id="staffDiv" class="staff" style="visibility: hidden;"></div><div><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;"></div><div id="scorePai" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;border-top: none;"></div><div id="scoreContainer">加载音色中...</div></div></div><script src="//cdn.jsdelivr.net/gh/zsyz2008/musicGames/Tone.js"></script><script src="//cdn.jsdelivr.net/npm/webmidi@next/dist/iife/webmidi.iife.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/JZZ.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/JZZ.input.Kbd.js"></script><script src="//cdn.jsdelivr.net/gh/instrumentbible/staff.js/js/staff.js"></script><script src="detail.js"></script></body></html>
