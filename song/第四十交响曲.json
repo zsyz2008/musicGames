@@ -2,8 +2,8 @@
     "header": {
       "keySignatures": [
         {
-          "key": "C",
-          "scale": "major",
+          "key": "G",
+          "scale": "minor",
           "ticks": 0
         }
       ],
