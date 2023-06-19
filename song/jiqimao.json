@@ -2,7 +2,7 @@
   "header": {
     "keySignatures": [
       {
-        "key": "C",
+        "key": "D",
         "scale": "major",
         "ticks": 0
       }
@@ -20,7 +20,7 @@
       {
         "ticks": 0,
         "timeSignature": [
-          4,
+          2,
           4
         ],
         "measures": 0
