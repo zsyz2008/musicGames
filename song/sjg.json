@@ -2,13 +2,13 @@
     "header": {
       "keySignatures": [
         {
-          "key": "C",
+          "key": "A",
           "scale": "major",
           "ticks": 0
         }
       ],
       "meta": [],
-      "name": "",
+      "name": "双截棍-周杰伦",
       "ppq": 480,
       "tempos": [
         {
@@ -20,7 +20,7 @@
         {
           "ticks": 0,
           "timeSignature": [
-            4,
+            1,
             4
           ],
           "measures": 0

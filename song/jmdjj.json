@@ -2,13 +2,13 @@
   "header": {
     "keySignatures": [
       {
-        "key": "C",
+        "key": "C#",
         "scale": "major",
         "ticks": 0
       }
     ],
     "meta": [],
-    "name": "寂寞的季节",
+    "name": "寂寞的季节-陶喆",
     "ppq": 480,
     "tempos": [
       {
@@ -20,7 +20,7 @@
       {
         "ticks": 0,
         "timeSignature": [
-          4,
+          2,
           4
         ],
         "measures": 0
