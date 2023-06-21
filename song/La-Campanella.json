@@ -94,7 +94,7 @@
         "type": "marker"
       }
     ],
-    "name": "钟",
+    "name": "钟-李斯特",
     "ppq": 192,
     "tempos": [
       {
@@ -106,7 +106,7 @@
       {
         "ticks": 0,
         "timeSignature": [
-          1 ,
+          2 ,
           4
         ],
         "measures": 0
