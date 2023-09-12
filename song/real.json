@@ -73730,7 +73730,7 @@
       },
       "pitchBends": [],
       "instrument": {
-        "family": "ensemble",
+        "family": "strings",
         "number": 48,
         "name": "string ensemble 1"
       },
@@ -93739,7 +93739,7 @@
       "controlChanges": {},
       "pitchBends": [],
       "instrument": {
-        "family": "brass",
+        "family": "pipe",
         "number": 60,
         "name": "french horn"
       },
@@ -94098,7 +94098,7 @@
       "controlChanges": {},
       "pitchBends": [],
       "instrument": {
-        "family": "reed",
+        "family": "pipe",
         "number": 68,
         "name": "oboe"
       },
