@@ -9065,7 +9065,7 @@
         },
         "pitchBends": [],
         "instrument": {
-          "family": "guitar",
+          "family": "e-guitar",
           "number": 29,
           "name": "overdriven guitar"
         },
@@ -11184,9 +11184,9 @@
         "controlChanges": {},
         "pitchBends": [],
         "instrument": {
-          "family": "piano",
+          "family": "guitar",
           "number": 0,
-          "name": "acoustic grand piano"
+          "name": "acoustic guitar (steel)"
         },
         "name": "Shuang JG",
         "notes": [],
@@ -20647,9 +20647,9 @@
         },
         "pitchBends": [],
         "instrument": {
-          "family": "strings",
+          "family": "guitar",
           "number": 46,
-          "name": "orchestral harp"
+          "name": "acoustic guitar (steel)"
         },
         "name": "",
         "notes": [
