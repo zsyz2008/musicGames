@@ -228,22 +228,39 @@
 }
 
 .big-btn{
-      text-decoration: none;
-      background-color: rgb(200, 200, 200, .5);
-      /* background-color:rgb(252, 201,185, .3); */
-      font-weight: 100px;
-      font-size: 2em;
-      display: inline-block;
-      /* padding: 4px 20px 4px 20px; */
-      border-radius: 4px;
-      /* margin: 10px; */
-      width: 100%;
-      z-index: 1;
-      color:#333
-    }
-/* .big-btn:active{
-    box-shadow: 3px 3px 0px #ddd,-3px -3px 0px #333;
-} */</style><script>const clientWidth = document.documentElement.clientWidth
+    text-decoration: none;
+    background-color: rgb(200, 200, 200, .5);
+    /* background-color:rgb(252, 201,185, .3); */
+    font-weight: 100px;
+    font-size: 2em;
+    display: inline-block;
+    /* padding: 4px 20px 4px 20px; */
+    border-radius: 4px;
+    /* margin: 10px; */
+    width: 100%;
+    z-index: 1;
+    color:#333
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.play-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+}</style><script>const clientWidth = document.documentElement.clientWidth
     const clientHeight = document.documentElement.clientHeight
     let pageWidth = clientWidth / clientHeight > 16 / 9 ? clientHeight * (16 / 9) : clientWidth
     const pageHeight = pageWidth / (16 / 9)
@@ -261,4 +278,4 @@
         release:location.host === 'zsyz2008.github.io'?'0.1.2':'local',
         environment: location.host === 'zsyz2008.github.io'?'prod':'local'
       }
-    }</script><script src="https://sdk.rum.aliyuncs.com/v1/bl.js" crossorigin></script><div style="color: #fff"><div style="font-size:16px;color:#db5a6b;margin-top: 10px;">请关闭静音模式或带上有线耳机</div><div id="scoreInfo"></div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;font-size: 14px;margin-top: 20px;margin-bottom: 20px;"></div><div style="display: flex;font-size: 12px;align-items:center;white-space:pre;padding-right: 5px;"><input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:hidden"></div></div><div id="staffDiv" class="staff" style="visibility: hidden;"></div><div id="osmdContainer" style="padding-right: 5px;"/><div id="gameContiner" style="display:none"><button id="pre" style="margin-right: 10px;">上一小节</button> <button id="next">下一小节</button><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;"></div><div id="scorePai" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;border-top: none;"></div><div id="scoreContainer"></div><div id="playground"><button id="playBtn" class="big-btn" style="font-size: 22px;visibility: hidden;">Tap</button></div></div><div id="band" style="display:flex;flex-wrap: wrap;justify-content:center;margin-top:30px"></div></div><div id="mystaff" style="background:#fff;opacity: .5;"></div><div class="copy-right"><div>Copyright ©2023 Zhao Shu. 保留所有权利</div><div>如有任何问题，请联系我们：</div><div>邮箱：375886043@qq.com</div><div>电话：13552691310</div></div><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/Tone.js"></script><script src="Tone.js"></script><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/webmidi.js"></script><script src="detail.js?9ad23d86bc9174c7b702"></script></body></html>
+    }</script><script src="https://sdk.rum.aliyuncs.com/v1/bl.js" crossorigin></script><div id="auto-play" class="play-button"><svg class="play-button__icon" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#db5a6b"/><polygon points="38,30 38,70 70,50" fill="white"/></svg></div><div style="color: #fff"><div style="font-size:16px;color:#db5a6b;margin-top: 10px;">请关闭静音模式或带上有线耳机</div><div id="scoreInfo" style="font-size: 12px;"></div><div style="display:flex;"><div id="title" style="width:80%;font-weight: bold;font-size: 14px;margin-top: 20px;margin-bottom: 20px;"></div><div style="display: flex;font-size: 12px;align-items:center;white-space:pre;padding-right: 5px;"><input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:hidden"></div></div><div id="staffDiv" class="staff" style="visibility: hidden;"></div><div id="osmdContainer" style="padding-right: 5px;"/><div id="gameContiner" style="display:none"><button id="pre" style="margin-right: 10px;">上一小节</button> <button id="next">下一小节</button><div id="scoreGroup" style="border:1px solid #db5a6b;height:20px;font-size:12px;text-align: center;"></div><div id="scorePai" style="display:flex;flex-wrap: nowrap;border:1px solid #db5a6b;height:20px;border-top: none;"></div><div id="scoreContainer"></div><div id="playground"><button id="playBtn" class="big-btn" style="font-size: 22px;visibility: hidden;">Tap</button></div></div><div id="band" style="display:flex;flex-wrap: wrap;justify-content:center;margin-top:30px"></div></div><div id="mystaff" style="background:#fff;opacity: .5;"></div><div class="copy-right"><div>Copyright ©2023 Zhao Shu. 保留所有权利</div><div>如有任何问题，请联系我们：</div><div>邮箱：375886043@qq.com</div><div>电话：13552691310</div></div><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/Tone.js"></script><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/webmidi.js"></script><script src="detail.js?62dcc7a0177ff2e5000c"></script></body></html>
