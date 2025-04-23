@@ -1,4 +1,64 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="keywords" content=""><meta name="description" content=""><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="apple-touch-fullscreen"/><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"/><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta content="telephone=no,email=no" name="format-detection"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><link rel="stylesheet" href="demo.css"><title>史上最容易学的乐器</title></head><body><ul id="list"></ul><div id="loading">loading...</div><script src="./jquery.min.js"></script><script>let SONG_LIST = [];
+<!doctype html><html><head><meta charset="UTF-8"><meta name="keywords" content=""><meta name="description" content=""><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="apple-touch-fullscreen"/><meta name="full-screen" content="yes"><meta name="x5-fullscreen" content="true"/><meta name="screen-orientation" content="portrait"><meta name="x5-orientation" content="portrait"><meta content="telephone=no,email=no" name="format-detection"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><link rel="stylesheet" href="demo.css"><title>史上最容易学的乐器</title></head><body><label class="switch"><input type="checkbox" id="computerSwitch"> <span class="slider round"></span></label><ul id="list"></ul><div id="loading">loading...</div><style>/* 简单的 switch 样式 */
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+
+            .switch input { 
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+            input:checked + .slider {
+                background-color: #2196F3;
+            }
+
+            input:focus + .slider {
+                box-shadow: 0 0 1px #2196F3;
+            }
+
+            input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+
+            /* Rounded sliders */
+            .slider.round {
+                border-radius: 34px;
+            }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }</style><script src="./jquery.min.js"></script><script>let SONG_LIST = [];
+            let computerSwitch = document.getElementById('computerSwitch');
             fetch('./list.json')
             .then(response=>{
             if (response.status !== 200) {
@@ -9,7 +69,8 @@
             return response.json()
             })
             .then(function(data) {
-                const SONG_LIST = data;
+                // 去掉 const 关键字，避免重新定义变量
+                SONG_LIST = data;
                 ;(function (factory) {
                 if (typeof define === "function" && define.amd) {
                     // AMD模式
@@ -143,16 +204,43 @@
             if($.isEmptyObject(detail2list.getLocalStorage()['extraData'])||!detail2list.isBack()){
                 getList(SONG_LIST.length);
             }
+
+            // 监听 switch 控件的变化
+            computerSwitch.addEventListener('change', function() {
+                listnum = 0;
+                $('#list').empty();
+                getList(SONG_LIST.length);
+            });
+
             function getList(num){
                 var li='';
                 listnum=$.isEmptyObject(detail2list.getLocalStorage()['extraData'])?listnum:detail2list.getLocalStorage()['extraData']['lastIndex'];
-                for(i=listnum;i<(num+listnum);i++){
-                    const song = SONG_LIST[i]
-                    li+='<li><a href="mtv.html?name=' + song.name + '">'+song.diplayName+'</a></li>';
+                console.log('SONG_LIST length:', SONG_LIST.length);
+                console.log('Starting index:', listnum);
+                console.log('Ending index:', num + listnum);
+            
+                for(let i=listnum; i<(num + listnum) && i < SONG_LIST.length; i++){
+                    const song = SONG_LIST[i];
+                    console.log('Processing song at index', i, ':', song);
+            
+                    if (song) {
+                        const displayName = song.displayName || song.diplayName; 
+                        if (song.name && displayName) {
+                            let url = `mtv.html?name=${song.name}`;
+                            if (computerSwitch.checked) {
+                                url += '&computer=true';
+                            }
+                            li+='<li><a href="' + url + '">'+ displayName +'</a></li>';
+                        } else {
+                            console.warn('Song at index', i, 'is missing name or displayName:', song);
+                        }
+                    } else {
+                        console.warn('Song at index', i, 'is undefined');
+                    }
                 }
                 $("#list").append(li);
                 hideLoading();
-                listnum=num+listnum;
+                listnum=Math.min(listnum + num, SONG_LIST.length);
             }
             function showLoading(){
                 scrolling=true;
@@ -174,4 +262,4 @@
                     }
                 }
             });
-            })</script><script src="index_mtv.js?8080d3a34027dab0a84f"></script></body></html>
+            })</script><script src="index_mtv.js?9b1efc5a42bec79e40f4"></script></body></html>
