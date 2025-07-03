@@ -26,11 +26,12 @@
         background-size: cover;
         background-position: center center; */
         /* background-color: #87CEEB; */
-        background-color:#b0bec5;
+        /* background-color:#b0bec5; */
         /* background-color: black; */
         /* background-color: rgb(235,235,235); */
         /* background-color: #87ceeb; */
         /* background-color: #f5f5dc; */
+        background-color: #000;
         /* display: flex;
         flex-direction: column;
         align-items: center;
@@ -260,10 +261,11 @@
 } */
 
 .copy-right{
+  margin-top: 10px;
   font-size: 12px;
   color: #86868b;
-  position: fixed;
-  bottom: 20px;
+  /* position: fixed;
+  bottom: 20px; */
 }
 
 .solo{
@@ -426,7 +428,7 @@ body {
     const string = `<style>html{
       font-size: ${pageWidth / 100}px
     }</style>`
-    document.write(string)</script></head><body><div id="auto-play" class="play-button"><svg class="play-button__icon" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#2b1a14"/><polygon points="38,30 38,70 70,50" fill="white"/></svg></div><div style="color: #fff;"><div id="scoreInfo" style="font-size: 12px; margin-bottom: 5px;"></div><div style="display:none;"><div id="title" style="width:80%;font-weight: bold;font-size: 14px;margin-top: 20px;margin-bottom: 20px;"></div><div style="display: flex;font-size: 12px;align-items:center;white-space:pre;padding-right: 5px;"><input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:hidden"></div></div><div id="osmdContainer" style="padding-right: 5px;"/><div id="gameContiner"><div class="beat-header chord-display mk-background"><div id="chord-name" style="display: none;">和弦</div><span id="keySignatures">谱号</span> <span id="scoreGroup" style="margin: 2px 0;border:none;background: none;"></span></div><button id="pre" style="margin-right: 10px;display: none;" class="control-button">上一小节</button> <button id="next" style="display: none" class="control-button">下一小节</button><div class="beat-header" id="scorePai" style="display:none;gap:2px;flex-wrap: nowrap;"></div><div id="scoreContainer"></div></div><div id="mystaff"></div><div id="solo" class="solo"><img src="./img/sun.png"/></div><div id="band" style="display: none;" class="band mk-background"></div><div style="display:flex; justify-content: center;margin-top: 20px;"><video id="myVideo" class="mk-background" width="100%" controls="false" style="margin-top: 10px;max-width: 1200px;filter: brightness(1.05) contrast(1.05) saturate(0.9);" playsinline webkit-playsinline></video></div><div id="playBtn" class="big-btn" style="display: none;opacity:.6;font-size: 16px;height: 300px;margin-top: 10px;color:#fff">TOUCH</div></div><div id="linkContainer" class="mk-background" style="display: none;font-size: 13px;margin-top: 10px;padding:5px 10px;"></div><div class="copy-right" id="copy-right"><div>Copyright ©2023 Zhao Shu. 保留所有权利</div><div>如有任何问题，请联系我们</div><div>邮箱：375886043@qq.com</div><div>电话：13552691310</div></div><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/Tone.js?AWSAccessKeyId=JDC_9D2431B59FDF746F2BC3925F9A4D&Expires=1749997932&Signature=DGSBVG4tubNcm%2B7qMhb%2BchMcFu4%3D"></script><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/tonal.min.js?AWSAccessKeyId=JDC_9D2431B59FDF746F2BC3925F9A4D&Expires=1749997967&Signature=4sRUZr8mJFUklQu170SNorbk4hQ%3D"></script><script src="https://soundfont.s3.cn-north-1.jdcloud-oss.com/js/vexflow5.0.js?AWSAccessKeyId=JDC_9D2431B59FDF746F2BC3925F9A4D&Expires=1750035992&Signature=BElSVBUFstlPSYXTB4IEnF6noJw%3D"></script><script>// var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdContainer");
+    document.write(string)</script></head><body><div id="auto-play" class="play-button"><svg class="play-button__icon" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#2b1a14"/><polygon points="38,30 38,70 70,50" fill="white"/></svg></div><div style="color: #fff;"><div id="scoreInfo" style="font-size: 12px; margin-bottom: 5px;"></div><div style="display:none;"><div id="title" style="width:80%;font-weight: bold;font-size: 14px;margin-top: 20px;margin-bottom: 20px;"></div><div style="display: flex;font-size: 12px;align-items:center;white-space:pre;padding-right: 5px;"><input type="checkbox" id="control" class="switch" :checked="fun.value=='true'" style="visibility:hidden"> <input type="checkbox" id="staff" class="switch" :checked="fun.value=='true'" style="visibility:hidden"></div></div><div id="osmdContainer" style="padding-right: 5px;margin-top: 0px;"/><div id="gameContiner"><div class="chord-display"><div id="chord-name">和弦</div><span id="keySignatures">谱号</span> <span id="scoreGroup" style="margin: 2px 0;border:none;background: none;"></span></div><button id="pre" style="margin-right: 10px;display: none;" class="control-button">上一小节</button> <button id="next" style="display: none" class="control-button">下一小节</button><div class="beat-header" id="scorePai" style="display:none;gap:2px;flex-wrap: nowrap;"></div><div id="scoreContainer"></div></div><div id="mystaff"></div><div id="solo" class="solo"><img src="./img/sun.png"/></div><div id="band" style="display: none;" class="band mk-background"></div><div style="display:none; justify-content: center;margin-top: 0px;"><video id="myVideo" class="mk-background" width="100%" controls="false" style="max-width: 1200px;filter: brightness(1.05) contrast(1.05) saturate(0.9);" playsinline webkit-playsinline></video></div><div id="playBtn" class="big-btn" style="display: none;opacity:.6;font-size: 16px;height: 300px;margin-top: 10px;color:#fff">TOUCH</div></div><div id="linkContainer" class="mk-background" style="display: none;font-size: 13px;margin-top: 10px;padding:5px 10px;"></div><div class="copy-right" id="copy-right" style="display: none;"><div>Copyright ©2023 Zhao Shu. 保留所有权利</div><div>如有任何问题，请联系我们</div><div>邮箱：375886043@qq.com</div><div>电话：13552691310</div></div><script src="./Tone.js"></script><script src="./tonal.min.js"></script><script src="./vexflow5.0.js"></script><script>// var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdContainer");
   // osmd.setOptions({
   //   backend: "svg",
   //   drawTitle: true,
@@ -443,4 +445,4 @@ body {
   function exportScore(){
      document.getElementById('gameContiner').style.display = 'none';
      document.getElementById('playBtn').style.display = 'none'; 
-  }</script><script src="mtv.js?aa4cd83f97f4c5b922f8"></script></body></html>
+  }</script><script src="mtv.js?2797324a4497ad62b918"></script></body></html>
