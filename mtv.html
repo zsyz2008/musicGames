@@ -420,6 +420,45 @@ body {
 
 #linkContainer a{
   color: #fff;
+}
+
+.list_active {
+    animation: pulse-grow-shine 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse-grow-shine {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    25% {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 
+                    0 0 20px rgba(255, 215, 0, 0.5), 
+                    0 0 30px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.08) rotate(0deg);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                    0 0 30px rgba(255, 215, 0, 0.6), 
+                    0 0 45px rgba(255, 215, 0, 0.4);
+    }
+    75% {
+        transform: scale(1.05) rotate(-1deg);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 
+                    0 0 20px rgba(255, 215, 0, 0.5), 
+                    0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* 🎯 横屏适配 */
+@media screen and (orientation: landscape) {
+  body{
+    width: 90%;
+    margin: 0 auto;
+  }
 }</style><script>const clientWidth = document.documentElement.clientWidth
     const clientHeight = document.documentElement.clientHeight
     let pageWidth = clientWidth / clientHeight > 16 / 9 ? clientHeight * (16 / 9) : clientWidth
@@ -444,4 +483,4 @@ body {
   function exportScore(){
      document.getElementById('gameContiner').style.display = 'none';
      document.getElementById('playBtn').style.display = 'none'; 
-  }</script><script src="mtv.js?823ca3200e7153c20595"></script></body></html>
+  }</script><script src="mtv.js?cbd7b728b9449a002452"></script></body></html>
