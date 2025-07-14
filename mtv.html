@@ -104,7 +104,7 @@
     .list {
       /* float: left; */
       position: relative;
-      height: 50px;
+      height: 20px;
       /* background-color: rgba(252, 201,185); */
       /* background-color: red; */
       /* border: 1px solid #fff; */
@@ -116,7 +116,7 @@
       font-size: 12px;
       text-align: center;
       justify-content: center;
-      border-radius: 10px;
+      /* border-radius: 10px; */
       /* box-sizing: content-box; */
     }
 
@@ -410,27 +410,60 @@ body {
     }
 }
 
-.annihilate-simple {
-    animation: simpleAnnihilate 1s forwards cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
+/* 消失动画触发 */
+.list.disappear, .staff-group.disappear{
+  animation: pulse-grow-shine 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite, explode-tiktok 0.5s ease-in-out 0.05s forwards;
+} 
+
+/* 闪一下白光 */
+@keyframes flash-pop {
+  0% {
+    /* box-shadow: 0 0 20px #fff, 0 0 60px #fff; */
+    background: #fff;
+  }
+  100% {
+    /* box-shadow: 0 0 15px #ff0077aa; */
+    background: #000;
+  }
 }
 
-@keyframes simpleAnnihilate {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-        filter: blur(0);
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-        filter: blur(1px);
-    }
-    100% {
-        transform: scale(1.3);
-        opacity: 0;
-        filter: blur(5px);
-    }
+/* 爆散消失动画 */
+@keyframes explode-tiktok {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+  100% {
+    /* transform: scale(0); */
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+/* 白键 */
+.key {
+    position: relative;
+    border: 1px solid #222;
+    border-radius: 0 0 5px 5px;
+    /* background: linear-gradient(to bottom, #f8f8f8 0%, #e0e0e0 100%); */
+    box-shadow: 
+        0 5px 3px rgba(0, 0, 0, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.08s ease;
+    z-index: 1;
+}
+
+.key:active, .key.pressed {
+    transform: translateY(8px);
+    box-shadow: 
+        0 1px 1px rgba(0, 0, 0, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.6);
+    background: linear-gradient(to bottom, #e0e0e0 0%, #cccccc 100%);
 }
 
 /* 🎯 横屏适配 */
@@ -463,4 +496,4 @@ body {
   function exportScore(){
      document.getElementById('gameContiner').style.display = 'none';
      document.getElementById('playBtn').style.display = 'none'; 
-  }</script><script src="mtv.js?2cd975e93f8f02169bb2"></script></body></html>
+  }</script><script src="mtv.js?814195381b8f1f867a9f"></script></body></html>
